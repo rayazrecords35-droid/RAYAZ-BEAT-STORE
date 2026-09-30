@@ -1,0 +1,1276 @@
+```html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RAYAZ RECORDS — Beat Store</title>
+
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#080808;
+    color:#fff;
+}
+header{
+    background:#0d0d0d;
+    border-bottom:1px solid #d4af37;
+    padding:18px 30px;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+nav{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.logo{
+    color:#d4af37;
+    font-size:24px;
+    font-weight:bold;
+}
+nav a{
+    color:#fff;
+    text-decoration:none;
+    margin-left:20px;
+}
+nav a:hover{color:#d4af37}
+
+.hero{
+    min-height:500px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:60px 20px;
+    background:linear-gradient(180deg,#111,#080808);
+}
+.hero h1{
+    color:#d4af37;
+    font-size:55px;
+    margin:0 0 15px;
+}
+.hero h2{
+    margin:0 0 15px;
+    font-size:28px;
+}
+.hero p{
+    color:#aaa;
+    font-size:18px;
+}
+
+.btn{
+    display:inline-block;
+    background:#d4af37;
+    color:#000;
+    padding:12px 22px;
+    border-radius:6px;
+    text-decoration:none;
+    font-weight:bold;
+    border:none;
+    cursor:pointer;
+    margin-top:15px;
+}
+.btn:hover{opacity:.85}
+
+section{padding:70px 20px}
+.container{
+    max-width:1200px;
+    margin:auto;
+}
+.section-title{
+    color:#d4af37;
+    text-align:center;
+    font-size:32px;
+    margin-bottom:40px;
+}
+
+.beats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+.beat-card{
+    background:#111;
+    border:1px solid #333;
+    border-radius:12px;
+    padding:25px;
+}
+.beat-card h3{
+    color:#d4af37;
+    margin-top:0;
+}
+.beat-card p{color:#aaa}
+
+audio{
+    width:100%;
+    margin:15px 0;
+}
+
+.licenses{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+}
+.license{
+    background:#181818;
+    border:1px solid #444;
+    border-radius:6px;
+    padding:12px;
+    text-align:center;
+}
+.license strong{
+    display:block;
+    color:#d4af37;
+    margin-bottom:5px;
+}
+.license .btn{
+    padding:9px 12px;
+    font-size:12px;
+}
+
+.order-box{
+    max-width:750px;
+    margin:auto;
+    background:#111;
+    border:1px solid #333;
+    border-radius:12px;
+    padding:30px;
+}
+
+label{
+    display:block;
+    margin-top:15px;
+    margin-bottom:7px;
+    color:#ccc;
+}
+
+input,select,textarea{
+    width:100%;
+    padding:13px;
+    background:#080808;
+    color:#fff;
+    border:1px solid #444;
+    border-radius:6px;
+}
+
+textarea{
+    min-height:100px;
+    resize:vertical;
+}
+
+.mvola-box{
+    margin-top:20px;
+    padding:20px;
+    background:#151515;
+    border:1px solid #d4af37;
+    border-radius:8px;
+}
+
+.mvola-box h3{
+    color:#d4af37;
+    margin-top:0;
+}
+
+.mvola-number{
+    font-size:28px;
+    font-weight:bold;
+    color:#d4af37;
+    margin:10px 0;
+}
+
+.payment-step{
+    color:#ccc;
+    line-height:1.7;
+}
+
+.reference-box{
+    border:1px solid #d4af37;
+    padding:15px;
+    border-radius:7px;
+    margin-top:15px;
+}
+
+.summary{
+    margin-top:20px;
+    padding:18px;
+    background:#181818;
+    border-radius:6px;
+    color:#ddd;
+    line-height:1.8;
+}
+
+.summary-title{
+    color:#d4af37;
+    font-weight:bold;
+}
+
+.actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:15px;
+}
+
+.actions .btn{
+    margin-top:0;
+}
+
+.success{
+    margin-top:20px;
+    padding:15px;
+    border:1px solid #3fcf70;
+    background:#102217;
+    color:#6dff9a;
+    border-radius:7px;
+    display:none;
+}
+
+.error{
+    margin-top:20px;
+    padding:15px;
+    border:1px solid #ff5555;
+    background:#251010;
+    color:#ff8585;
+    border-radius:7px;
+    display:none;
+}
+
+footer{
+    background:#050505;
+    border-top:1px solid #222;
+    text-align:center;
+    padding:30px;
+    color:#777;
+}
+
+@media(max-width:700px){
+    nav{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    nav a{
+        margin:0 7px;
+        font-size:14px;
+    }
+
+    .hero h1{
+        font-size:40px;
+    }
+
+    .licenses{
+        grid-template-columns:1fr;
+    }
+
+    .order-box{
+        padding:20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<nav>
+<div class="logo">RAYAZ RECORDS</div>
+
+<div>
+<a href="#accueil">Accueil</a>
+<a href="#beats">Beats</a>
+<a href="#services">Services</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+</div>
+</nav>
+</header>
+
+
+<!-- ACCUEIL -->
+<section class="hero" id="accueil">
+<div>
+
+<h1>RAYAZ RECORDS</h1>
+
+<h2>Premium Beats & Instrumentals</h2>
+
+<p>Made in Madagascar • Available Worldwide</p>
+
+<a href="#beats" class="btn">
+ÉCOUTER LES BEATS
+</a>
+
+</div>
+</section>
+
+
+<!-- BEATS -->
+<section id="beats">
+
+<div class="container">
+
+<h2 class="section-title">
+MES BEATS
+</h2>
+
+<div class="beats">
+
+
+<!-- BEAT 1 -->
+<div class="beat-card">
+
+<h3>RAYAZ AFRO BEAT</h3>
+
+<p>
+Afro instrumental professionnel.
+</p>
+
+<audio controls>
+<source src="beats/beat1.mp3" type="audio/mpeg">
+Votre navigateur ne supporte pas l'audio.
+</audio>
+
+<div class="licenses">
+
+<div class="license">
+<strong>Basic</strong>
+$20
+
+<button
+class="btn"
+onclick="selectBeat('RAYAZ AFRO BEAT','Basic','$20')">
+BUY
+</button>
+
+</div>
+
+<div class="license">
+<strong>Premium</strong>
+$50
+
+<button
+class="btn"
+onclick="selectBeat('RAYAZ AFRO BEAT','Premium','$50')">
+BUY
+</button>
+
+</div>
+
+<div class="license">
+<strong>Exclusive</strong>
+$100
+
+<button
+class="btn"
+onclick="selectBeat('RAYAZ AFRO BEAT','Exclusive','$100')">
+BUY
+</button>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- BEAT 2 -->
+<div class="beat-card">
+
+<h3>RAYAZ TRAP BEAT</h3>
+
+<p>
+Trap instrumental professionnel.
+</p>
+
+<audio controls>
+<source src="beats/beat2.mp3" type="audio/mpeg">
+Votre navigateur ne supporte pas l'audio.
+</audio>
+
+<div class="licenses">
+
+<div class="license">
+<strong>Basic</strong>
+$20
+
+<button
+class="btn"
+onclick="selectBeat('RAYAZ TRAP BEAT','Basic','$20')">
+BUY
+</button>
+
+</div>
+
+<div class="license">
+<strong>Premium</strong>
+$50
+
+<button
+class="btn"
+onclick="selectBeat('RAYAZ TRAP BEAT','Premium','$50')">
+BUY
+</button>
+
+</div>
+
+<div class="license">
+<strong>Exclusive</strong>
+$100
+
+<button
+class="btn"
+onclick="selectBeat('RAYAZ TRAP BEAT','Exclusive','$100')">
+BUY
+</button>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- BEAT 3 -->
+<div class="beat-card">
+
+<h3>RAYAZ GOSPEL BEAT</h3>
+
+<p>
+Gospel instrumental professionnel.
+</p>
+
+<audio controls>
+<source src="beats/beat3.mp3" type="audio/mpeg">
+Votre navigateur ne supporte pas l'audio.
+</audio>
+
+<div class="licenses">
+
+<div class="license">
+<strong>Basic</strong>
+$20
+
+<button
+class="btn"
+onclick="selectBeat('RAYAZ GOSPEL BEAT','Basic','$20')">
+BUY
+</button>
+
+</div>
+
+<div class="license">
+<strong>Premium</strong>
+$50
+
+<button
+class="btn"
+onclick="selectBeat('RAYAZ GOSPEL BEAT','Premium','$50')">
+BUY
+</button>
+
+</div>
+
+<div class="license">
+<strong>Exclusive</strong>
+$100
+
+<button
+class="btn"
+onclick="selectBeat('RAYAZ GOSPEL BEAT','Exclusive','$100')">
+BUY
+</button>
+
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<!-- SERVICES -->
+<section id="services">
+
+<div class="container">
+
+<h2 class="section-title">
+SERVICES
+</h2>
+
+<div class="beats">
+
+<div class="beat-card">
+<h3>Beat Production</h3>
+<p>
+Création d'instrumentals originaux.
+</p>
+</div>
+
+<div class="beat-card">
+<h3>Recording</h3>
+<p>
+Enregistrement vocal professionnel.
+</p>
+</div>
+
+<div class="beat-card">
+<h3>Mix & Master</h3>
+<p>
+Mixage et mastering de qualité.
+</p>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<!-- ABOUT -->
+<section id="about">
+
+<div class="container">
+
+<h2 class="section-title">
+ABOUT RAYAZ RECORDS
+</h2>
+
+<div class="order-box">
+
+<p>
+RAYAZ RECORDS est un projet musical basé à Madagascar,
+créant des instrumentals et des productions musicales
+pour les artistes du monde entier.
+</p>
+
+<p>
+Notre objectif est de proposer des beats originaux,
+professionnels et adaptés aux différents styles musicaux.
+</p>
+
+</div>
+</div>
+</section>
+
+
+<!-- CONTACT / PAIEMENT -->
+<section id="contact">
+
+<div class="container">
+
+<h2 class="section-title">
+COMMANDER & PAYER
+</h2>
+
+<div class="order-box">
+
+
+<label for="name">
+Nom *
+</label>
+
+<input
+type="text"
+id="name"
+placeholder="Votre nom"
+>
+
+
+<label for="email">
+Email *
+</label>
+
+<input
+type="email"
+id="email"
+placeholder="Votre adresse email"
+>
+
+
+<label for="beat">
+Beat *
+</label>
+
+<select id="beat">
+
+<option value="">
+-- Choisir un beat --
+</option>
+
+<option value="RAYAZ AFRO BEAT">
+RAYAZ AFRO BEAT
+</option>
+
+<option value="RAYAZ TRAP BEAT">
+RAYAZ TRAP BEAT
+</option>
+
+<option value="RAYAZ GOSPEL BEAT">
+RAYAZ GOSPEL BEAT
+</option>
+
+</select>
+
+
+<label for="license">
+License *
+</label>
+
+<select id="license">
+
+<option value="">
+-- Choisir une license --
+</option>
+
+<option value="Basic">
+Basic — $20
+</option>
+
+<option value="Premium">
+Premium — $50
+</option>
+
+<option value="Exclusive">
+Exclusive — $100
+</option>
+
+</select>
+
+
+<!-- MVOLA PAYMENT -->
+<div class="mvola-box">
+
+<h3>
+💰 PAIEMENT MVola
+</h3>
+
+<div class="payment-step">
+
+<p>
+<b>Étape 1 :</b>
+Choisissez votre Beat et votre License.
+</p>
+
+<p>
+<b>Étape 2 :</b>
+Effectuez le paiement MVola au numéro :
+</p>
+
+<div class="mvola-number">
+034 25 954 03
+</div>
+
+<p>
+<b>Étape 3 :</b>
+Après le paiement, récupérez la
+<b>référence de transaction MVola</b>.
+</p>
+
+<p>
+<b>Étape 4 :</b>
+Entrez cette référence ci-dessous puis cliquez sur
+<b>J'AI PAYÉ</b>.
+</p>
+
+</div>
+
+<div class="reference-box">
+
+<label for="transactionReference">
+Référence de transaction MVola *
+</label>
+
+<input
+type="text"
+id="transactionReference"
+placeholder="Exemple : 123456789"
+>
+
+</div>
+
+</div>
+
+
+<label for="message">
+Message
+</label>
+
+<textarea
+id="message"
+placeholder="Informations supplémentaires concernant votre commande">
+</textarea>
+
+
+<!-- SUMMARY -->
+<div class="summary">
+
+<div class="summary-title">
+📦 RÉSUMÉ DE LA COMMANDE
+</div>
+
+<div id="orderSummary">
+Aucun beat sélectionné.
+</div>
+
+</div>
+
+
+<!-- SUCCESS / ERROR -->
+<div
+id="successMessage"
+class="success">
+</div>
+
+<div
+id="errorMessage"
+class="error">
+</div>
+
+
+<!-- CONFIRM PAYMENT -->
+<button
+class="btn"
+onclick="confirmPayment()">
+
+💳 J'AI PAYÉ
+
+</button>
+
+
+<!-- CONTACT ACTIONS -->
+<div class="actions">
+
+<button
+class="btn"
+onclick="sendWhatsApp()">
+
+📱 ORDER ON WHATSAPP
+
+</button>
+
+<button
+class="btn"
+onclick="sendEmail()">
+
+✉️ SEND BY EMAIL
+
+</button>
+
+</div>
+
+
+</div>
+</div>
+</section>
+
+
+<footer>
+
+RAYAZ RECORDS © 2026
+<br>
+Made in Madagascar • Available Worldwide
+
+</footer>
+
+
+<script>
+
+/* =========================
+   BACKEND
+========================= */
+
+const BACKEND_URL =
+"http://localhost:3000";
+
+
+/* =========================
+   PRICES
+========================= */
+
+const prices = {
+
+    "Basic": "$20",
+
+    "Premium": "$50",
+
+    "Exclusive": "$100"
+
+};
+
+
+/* =========================
+   SELECT BEAT
+========================= */
+
+function selectBeat(
+    beat,
+    license,
+    price
+){
+
+    document.getElementById("beat").value =
+        beat;
+
+    document.getElementById("license").value =
+        license;
+
+    updateSummary();
+
+    document.getElementById("contact")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+}
+
+
+/* =========================
+   ORDER SUMMARY
+========================= */
+
+function updateSummary(){
+
+    const beat =
+        document.getElementById("beat").value;
+
+    const license =
+        document.getElementById("license").value;
+
+    const summary =
+        document.getElementById("orderSummary");
+
+
+    if(!beat || !license){
+
+        summary.innerHTML =
+            "Aucun beat sélectionné.";
+
+        return;
+    }
+
+
+    summary.innerHTML =
+
+        "Beat : <strong>" +
+        beat +
+        "</strong><br>" +
+
+        "License : <strong>" +
+        license +
+        "</strong><br>" +
+
+        "Prix : <strong>" +
+        prices[license] +
+        "</strong><br>" +
+
+        "Paiement : <strong>MVola</strong><br>" +
+
+        "Numéro MVola : <strong>034 25 954 03</strong>";
+
+}
+
+
+document
+.getElementById("beat")
+.addEventListener(
+    "change",
+    updateSummary
+);
+
+
+document
+.getElementById("license")
+.addEventListener(
+    "change",
+    updateSummary
+);
+
+
+/* =========================
+   CONFIRM PAYMENT
+========================= */
+
+async function confirmPayment(){
+
+    const name =
+        document
+        .getElementById("name")
+        .value
+        .trim();
+
+
+    const email =
+        document
+        .getElementById("email")
+        .value
+        .trim();
+
+
+    const beat =
+        document
+        .getElementById("beat")
+        .value;
+
+
+    const license =
+        document
+        .getElementById("license")
+        .value;
+
+
+    const reference =
+        document
+        .getElementById("transactionReference")
+        .value
+        .trim();
+
+
+    const message =
+        document
+        .getElementById("message")
+        .value
+        .trim();
+
+
+    const success =
+        document
+        .getElementById("successMessage");
+
+
+    const error =
+        document
+        .getElementById("errorMessage");
+
+
+    success.style.display =
+        "none";
+
+    error.style.display =
+        "none";
+
+
+    /* VALIDATION */
+
+    if(
+        !name ||
+        !email ||
+        !beat ||
+        !license ||
+        !reference
+    ){
+
+        error.innerHTML =
+            "⚠️ Veuillez remplir tous les champs obligatoires.";
+
+        error.style.display =
+            "block";
+
+        return;
+    }
+
+
+    /* ORDER */
+
+    const order = {
+
+        name:name,
+
+        email:email,
+
+        beat:beat,
+
+        license:license,
+
+        price:prices[license],
+
+        paymentMethod:"MVola",
+
+        mvolaNumber:"0342595403",
+
+        transactionReference:reference,
+
+        message:message,
+
+        status:"PENDING"
+
+    };
+
+
+    try{
+
+        const response =
+            await fetch(
+                BACKEND_URL +
+                "/api/orders",
+                {
+                    method:"POST",
+
+                    headers:{
+                        "Content-Type":
+                        "application/json"
+                    },
+
+                    body:
+                        JSON.stringify(order)
+                }
+            );
+
+
+        if(!response.ok){
+
+            throw new Error(
+                "HTTP " +
+                response.status
+            );
+
+        }
+
+
+        const data =
+            await response.json();
+
+
+        if(!data.success){
+
+            throw new Error(
+                data.message ||
+                "Erreur serveur"
+            );
+
+        }
+
+
+        /* SUCCESS */
+
+        success.innerHTML =
+
+            "✅ <b>Votre commande a bien été envoyée.</b><br><br>" +
+
+            "Le paiement MVola sera vérifié manuellement.<br>" +
+
+            "Après vérification, votre commande pourra être traitée.<br><br>" +
+
+            "ID commande : <b>" +
+            data.orderId +
+            "</b>";
+
+        success.style.display =
+            "block";
+
+
+        /* CLEAR REFERENCE */
+
+        document
+        .getElementById(
+            "transactionReference"
+        )
+        .value = "";
+
+
+    }catch(err){
+
+        console.error(
+            "Erreur backend :",
+            err
+        );
+
+
+        error.innerHTML =
+
+            "❌ <b>Le serveur RAYAZ RECORDS n'est pas accessible.</b><br><br>" +
+
+            "Vérifiez que le backend est démarré sur :<br>" +
+
+            "<b>http://localhost:3000</b>";
+
+        error.style.display =
+            "block";
+
+    }
+
+}
+
+
+/* =========================
+   WHATSAPP
+========================= */
+
+function sendWhatsApp(){
+
+    const name =
+        document
+        .getElementById("name")
+        .value
+        .trim();
+
+
+    const email =
+        document
+        .getElementById("email")
+        .value
+        .trim();
+
+
+    const beat =
+        document
+        .getElementById("beat")
+        .value;
+
+
+    const license =
+        document
+        .getElementById("license")
+        .value;
+
+
+    const reference =
+        document
+        .getElementById(
+            "transactionReference"
+        )
+        .value
+        .trim();
+
+
+    const message =
+
+        "Bonjour RAYAZ RECORDS.\n\n" +
+
+        "Nom : " +
+        name +
+        "\n" +
+
+        "Email : " +
+        email +
+        "\n" +
+
+        "Beat : " +
+        beat +
+        "\n" +
+
+        "License : " +
+        license +
+        "\n" +
+
+        "Prix : " +
+        (prices[license] || "") +
+        "\n" +
+
+        "Paiement : MVola\n" +
+
+        "Référence MVola : " +
+        reference;
+
+
+    window.open(
+
+        "https://wa.me/261342595403?text=" +
+
+        encodeURIComponent(message),
+
+        "_blank"
+
+    );
+
+}
+
+
+/* =========================
+   EMAIL
+========================= */
+
+function sendEmail(){
+
+    const name =
+        document
+        .getElementById("name")
+        .value
+        .trim();
+
+
+    const email =
+        document
+        .getElementById("email")
+        .value
+        .trim();
+
+
+    const beat =
+        document
+        .getElementById("beat")
+        .value;
+
+
+    const license =
+        document
+        .getElementById("license")
+        .value;
+
+
+    const reference =
+        document
+        .getElementById(
+            "transactionReference"
+        )
+        .value
+        .trim();
+
+
+    const subject =
+        "Commande Beat - RAYAZ RECORDS";
+
+
+    const body =
+
+        "Bonjour RAYAZ RECORDS,\n\n" +
+
+        "Nom : " +
+        name +
+        "\n" +
+
+        "Email : " +
+        email +
+        "\n" +
+
+        "Beat : " +
+        beat +
+        "\n" +
+
+        "License : " +
+        license +
+        "\n" +
+
+        "Prix : " +
+        (prices[license] || "") +
+        "\n" +
+
+        "Paiement : MVola\n" +
+
+        "Référence MVola : " +
+        reference;
+
+
+    window.location.href =
+
+        "mailto:rayazrecords35@gmail.com" +
+
+        "?subject=" +
+
+        encodeURIComponent(subject) +
+
+        "&body=" +
+
+        encodeURIComponent(body);
+
+}
+
+</script>
+
+</body>
+</html>
+```
