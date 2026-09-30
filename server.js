@@ -186,15 +186,15 @@ if (
 
 let fileName = "";
 
-if (order.beat === "RAYAZ AFRO BEAT") {
+if (order.beat === "TIAKOLA TYPE BEAT AFROBEAT 2026") {
     fileName = "beat1.mp3";
 }
 
-if (order.beat === "RAYAZ TRAP BEAT") {
+if (order.beat === "SHATTA LOVA BEAT DANCEHALL SHATTA 2026") {
     fileName = "beat2.mp3";
 }
 
-if (order.beat === "RAYAZ GOSPEL BEAT") {
+if (order.beat === "BURNA BOY TYPE BEAT AFRODANCEHALL 2026") {
     fileName = "beat3.mp3";
 }
 
