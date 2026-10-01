@@ -186,7 +186,7 @@ if (
 
 let fileName = "";
 
-if (order.beat === "TIAKOLA TYPE BEAT AFROBEAT 2026") {
+if (order.beat === "RAYAZ AFRO BEAT") {
     fileName = "beat1.mp3";
 }
 
