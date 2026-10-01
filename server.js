@@ -223,7 +223,9 @@ res.download(filePath, fileName);
 
 
 });
-
+app.use("/beats", (req, res) => {
+    res.status(403).send("Accès direct au fichier interdit.");
+});
 app.use(express.static(__dirname));
 
 app.get("/", (req, res) => {
