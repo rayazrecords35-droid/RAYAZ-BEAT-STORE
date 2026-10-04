@@ -168,6 +168,10 @@ app.post("/api/orders", async (req, res) => {
 
 // Verify payment
 app.post("/api/orders/:id/verify", async (req, res) => {
+    const password = req.headers["x-admin-password"];
+    if (password !== process.env.ADMIN_PASSWORD) {
+        return res.status(401).json({ success: false, message: "Accès admin refusé" });
+    }
     try {
         const result = await pool.query(
             "SELECT * FROM orders WHERE id = $1",

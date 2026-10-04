@@ -445,7 +445,8 @@ async function verifyOrder(orderId) {
                     method: "POST",
                     headers: {
                         "Content-Type":
-                            "application/json"
+                            "application/json",
+                        "x-admin-password": adminPassword
                     }
                 }
             );
