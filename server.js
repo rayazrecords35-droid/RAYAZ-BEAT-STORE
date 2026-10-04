@@ -7,6 +7,18 @@ const pool = require("./db");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+function adminAuth(req, res, next) {
+    const password = req.headers["x-admin-password"];
+
+    if (password !== process.env.ADMIN_PASSWORD) {
+        return res.status(401).json({
+            success: false,
+            message: "Accès admin refusé"
+        });
+    }
+
+    next();
+}
 
 app.use(cors());
 app.use(express.json());
@@ -45,7 +57,7 @@ app.get("/api/health", (req, res) => {
 });
 
 // Get all orders
-app.get("/api/orders", async (req, res) => {
+app.get("/api/orders", adminAuth, async (req, res) => {
     try {
         const result = await pool.query(
             "SELECT * FROM orders ORDER BY date DESC"

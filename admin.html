@@ -203,10 +203,17 @@ async function loadOrders() {
 
     try {
 
+        const adminPassword = prompt("Mot de passe Admin :");
+
         const response =
             await fetch(
                 BACKEND_URL +
-                "/api/orders"
+                "/api/orders",
+                {
+                    headers: {
+                        "x-admin-password": adminPassword
+                    }
+                }
             );
 
         const data =
