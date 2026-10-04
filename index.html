@@ -610,7 +610,7 @@ Beat *
 </option>
 
 <option value="RAYAZ AFRO BEAT">
-RAYAZ AFRO BEAT
+Afro instrumental professionnel.
 </option>
 
 <option value="RAYAZ TRAP BEAT">
@@ -862,7 +862,7 @@ function updateSummary(){
     summary.innerHTML =
 
         "Beat : <strong>" +
-        beat +
+        (beat === "RAYAZ AFRO BEAT" ? "Afro instrumental professionnel." : beat) +
         "</strong><br>" +
 
         "License : <strong>" +
