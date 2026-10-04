@@ -285,12 +285,9 @@ app.get("/download/:token", async (req, res) => {
             fileName = "beat1.mp3";
         }
 
-        if (
-            row.beat ===
-            "SHATTA LOVA BEAT DANCEHALL SHATTA 2026"
-        ) {
-            fileName = "beat2.mp3";
-        }
+        if (row.beat === "RAYAZ TRAP BEAT") {
+    fileName = "beat2.mp3";
+}
 
         if (
             row.beat ===
